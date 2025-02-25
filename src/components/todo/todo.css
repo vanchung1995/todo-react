@@ -20,11 +20,28 @@
     padding: 20px;
 }
 
-.todo-data table, th, td {
-    border: solid 1px;
+.todo-data table {
+    width: 100%;
+    table-layout: auto;
     border-collapse: collapse;
 }
 
 .todo-image {
     animation: rotate 1s infinite;
+}
+
+.todoRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.todoRow .todoInfo {
+    text-align: left;
+    border-right: solid 1px;
+}
+
+.todoRow .todoRemove {
+    text-align: right;
+    width: 100%;
 }
