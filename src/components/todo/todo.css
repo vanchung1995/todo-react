@@ -1,0 +1,30 @@
+.todo-title {
+    font-size: 20px;
+    color: orange;
+    margin: 20px;
+}
+
+.todo-container {
+    text-align: center;
+    width: 600px;
+    margin: 50px auto;
+}
+
+.todo-new {
+    margin: auto;
+}
+
+.todo-data {
+    margin: 20px;
+    border: solid 1px black;
+    padding: 20px;
+}
+
+.todo-data table, th, td {
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+.todo-image {
+    animation: rotate 1s infinite;
+}

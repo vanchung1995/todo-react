@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import TodoData from './components/learning/TodoData';
+import TodoNew from './components/learning/TodoNew';
+import './components/todo/todo.css';
+import reactLogo from './assets/react.svg';
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const [todoList, setTodoList] = useState([]);
+
+  const addNewTodoHandler = (name) => {
+    const newId = todoList.length == 0 ? 1 :  Math.max(...todoList.map(todo => todo.id)) + 1;
+    const newTodo = {
+      id: newId,
+      name: name
+    }
+    setTodoList([...todoList, newTodo]);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='todo-container'>
+      <div className='todo-title'>Todo List</div>
+      <TodoNew addNewTodoHandler = {addNewTodoHandler}/>
+      <TodoData todoList={todoList}/>
+      <div className='todo-image'>
+        <img src={reactLogo}/>
       </div>
-      <h1>Hello World React Chung</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
