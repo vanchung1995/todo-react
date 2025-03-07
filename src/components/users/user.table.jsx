@@ -5,11 +5,8 @@ import { useEffect, useState } from 'react';
 const UserTable = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        console.log("001");
         loadAllUser();
     }, []);
-
-    console.log("000");
     
     const loadAllUser = async () => {
         const userResp = await fetchAllUser();

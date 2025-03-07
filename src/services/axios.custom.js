@@ -14,7 +14,7 @@ AxiosCustom.interceptors.response.use(function (response) {
     if (response.data && response.data.data) return response.data;
     return response;
 }, function (error) {
-    return Promise.reject(error);
+    return error.response.data
 });
 
 export default AxiosCustom;
