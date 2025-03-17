@@ -17,12 +17,20 @@ const UserForm = () => {
 
     const handleOk = () => {
         createUser();
-        // setIsModalOpen(false);
+        resetAndCloseModal();
     };
 
     const handleCancel = () => {
-        setIsModalOpen(false);
+        resetAndCloseModal();
     };
+
+    const resetAndCloseModal = () => {
+        setIsModalOpen(false);
+        setEmail("");
+        setFullName("");
+        setPassWord("");
+        setPhone("");
+    }
 
     const createUser = async () => {
         const resp = await createUserApi(fullName, email, password, phone);
@@ -37,6 +45,7 @@ const UserForm = () => {
                 description: JSON.stringify(resp.message)
             })
         }
+        setIsModalOpen(false);
     }
 
     return (

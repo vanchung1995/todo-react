@@ -1,6 +1,7 @@
 import { Space, Table, Tag } from 'antd';
 import { fetchAllUser } from '../../services/api.service';
 import { useEffect, useState } from 'react';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
@@ -33,6 +34,16 @@ const UserTable = () => {
         {
             title: 'Role',
             dataIndex: 'role',
+        },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (_, record) => (
+                <div style={{display: 'flex', gap: '10px'}}>
+                    <a><EditOutlined style={{cursor: 'pointer', color: 'orange'}}/> </a>
+                    <a><DeleteOutlined style={{ cursor: 'pointer', color: 'red' }} /></a>
+                </div>
+            ),
         },
     ];
 
